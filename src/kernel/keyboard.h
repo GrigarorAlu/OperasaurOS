@@ -1,0 +1,107 @@
+#ifndef KEYBOARD_H
+#define KEYBOARD_H
+
+#include <types.h>
+
+typedef enum
+{
+    KEY_NULL,
+    KEY_ESCAPE,
+    KEY_1,
+    KEY_2,
+    KEY_3,
+    KEY_4,
+    KEY_5,
+    KEY_6,
+    KEY_7,
+    KEY_8,
+    KEY_9,
+    KEY_0,
+    KEY_MINUS,
+    KEY_EQUALS,
+    KEY_BACKSPACE,
+    KEY_TAB,
+    KEY_Q,
+    KEY_W,
+    KEY_E,
+    KEY_R,
+    KEY_T,
+    KEY_Y,
+    KEY_U,
+    KEY_I,
+    KEY_O,
+    KEY_P,
+    KEY_LBRACKET,
+    KEY_RBRACKET,
+    KEY_ENTER,
+    KEY_CTRL,
+    KEY_A,
+    KEY_S,
+    KEY_D,
+    KEY_F,
+    KEY_G,
+    KEY_H,
+    KEY_J,
+    KEY_K,
+    KEY_L,
+    KEY_SEMICOLON,
+    KEY_QUOTE,
+    KEY_GRAVE,
+    KEY_LSHIFT,
+    KEY_BACKSLASH,
+    KEY_Z,
+    KEY_X,
+    KEY_C,
+    KEY_V,
+    KEY_B,
+    KEY_N,
+    KEY_M,
+    KEY_COMMA,
+    KEY_DOT,
+    KEY_SLASH,
+    KEY_RSHIFT,
+    KEY_NUM_ASTERISK,
+    KEY_ALT,
+    KEY_SPACE,
+    KEY_CAPS_LOCK,
+    KEY_F1,
+    KEY_F2,
+    KEY_F3,
+    KEY_F4,
+    KEY_F5,
+    KEY_F6,
+    KEY_F7,
+    KEY_F8,
+    KEY_F9,
+    KEY_F10,
+    KEY_NUM_LOCK,
+    KEY_SCROLL_LOCK,
+    KEY_NUM_7,
+    KEY_NUM_8,
+    KEY_NUM_9,
+    KEY_NUM_MINUS,
+    KEY_NUM_4,
+    KEY_NUM_5,
+    KEY_NUM_6,
+    KEY_NUM_PLUS,
+    KEY_NUM_1,
+    KEY_NUM_2,
+    KEY_NUM_3,
+    KEY_NUM_0,
+    KEY_NUM_DOT,
+    KEY_F11 = KEY_NUM_DOT + 4,
+    KEY_F12,
+    SCANCODE_COUNT,
+} KeyCode;
+
+typedef void (*KeyCodeHandlerFn)(KeyCode key, bool pressed);
+typedef void (*KeyCharHandlerFn)(u8 key);
+
+extern KeyCodeHandlerFn key_code_handler;
+extern KeyCharHandlerFn key_char_handler;
+
+void keyboard_init();
+
+bool keyboard_is_down(KeyCode key);
+
+#endif
